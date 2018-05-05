@@ -1,9 +1,11 @@
 package durzoflint.celebritywallpaper;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +13,7 @@ import java.util.List;
 import ir.apend.slider.model.Slide;
 import ir.apend.slider.ui.Slider;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,5 +40,19 @@ public class HomeActivity extends AppCompatActivity {
 
         //add slides to slider
         slider.addSlides(slideList);
+
+        ImageView alexandradaddario = findViewById(R.id.alexandradaddario);
+        alexandradaddario.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(HomeActivity.this, ImageActivity.class);
+        switch (v.getId()){
+            case R.id.alexandradaddario:
+                intent.putExtra("name","alexandradaddario");
+                break;
+        }
+        startActivity(intent);
     }
 }
