@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "794206353384",
+    "firebase_url": "https://celebrity-wallpaper.firebaseio.com",
+    "project_id": "celebrity-wallpaper",
+    "storage_bucket": "celebrity-wallpaper.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:794206353384:android:948a96f4a73916c8",
+        "android_client_info": {
+          "package_name": "durzoflint.celebritywallpaper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "794206353384-jk33n93p8gkcdn2nb4cib48fsvqdp64d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "durzoflint.celebritywallpaper",
+            "certificate_hash": "ea2c9a6af91d8b72eb48e255e99255d1462f12c3"
+          }
+        },
+        {
+          "client_id": "794206353384-s2nrcedtbq72vu7bdv89b3n1mf8if0ke.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiOm0F6GRGWX6aipH4XO_ZgtXO2k5GDyQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "794206353384-s2nrcedtbq72vu7bdv89b3n1mf8if0ke.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

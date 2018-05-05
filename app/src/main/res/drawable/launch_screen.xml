@@ -12,7 +12,7 @@
     <item>
 
         <bitmap
-            android:src="@drawable/alx"
+            android:src="@drawable/splash_img"
             android:gravity="center"/>
     </item>
 </layer-list>
