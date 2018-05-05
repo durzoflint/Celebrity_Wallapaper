@@ -16,14 +16,14 @@ public class ImageActivity extends AppCompatActivity {
     public static final int ADAPTER_TYPE_TOP = 1;
     public static final int ADAPTER_TYPE_BOTTOM = 2;
 
-    private int[] listItems = {R.drawable.background, R.drawable.splash_img};
+    private String[] listItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image);
         Intent intent = getIntent();
-        Toast.makeText(this, intent.getStringExtra("name"), Toast.LENGTH_SHORT).show();
+        listItems = intent.getStringArrayExtra("list");
 
         init();
         setupViewPager();
@@ -34,9 +34,11 @@ public class ImageActivity extends AppCompatActivity {
         viewpagerTop = findViewById(R.id.viewpagerTop);
         viewPagerBackground = findViewById(R.id.viewPagerbackground);
 
+        viewPagerBackground.setOffscreenPageLimit(listItems.length-1);
+        viewpagerTop.setOffscreenPageLimit(listItems.length-1);
+
         viewpagerTop.setClipChildren(false);
         viewpagerTop.setPageMargin(getResources().getDimensionPixelOffset(R.dimen.pager_margin));
-        viewpagerTop.setOffscreenPageLimit(3);
         viewpagerTop.setPageTransformer(false, new CarouselEffectTransformer(this)); // Set transformer
     }
 

@@ -14,10 +14,10 @@ import com.squareup.picasso.Picasso;
 public class MyPagerAdapter extends PagerAdapter {
 
     Context context;
-    int[] listItems;
+    String[] listItems;
     int adapterType;
 
-    public MyPagerAdapter(Context context, int[] listItems, int adapterType) {
+    public MyPagerAdapter(Context context, String[] listItems, int adapterType) {
         this.context = context;
         this.listItems = listItems;
         this.adapterType=adapterType;
