@@ -15,6 +15,8 @@ public class ImageActivity extends AppCompatActivity {
     private ViewPager viewpagerTop, viewPagerBackground;
     public static final int ADAPTER_TYPE_TOP = 1;
     public static final int ADAPTER_TYPE_BOTTOM = 2;
+    public static final String EXTRA_IMAGE = "image";
+    public static final String EXTRA_TRANSITION_IMAGE = "image";
 
     private String[] listItems;
 
@@ -79,18 +81,18 @@ public class ImageActivity extends AppCompatActivity {
     }
 
     public void clickEvent(View view) {
-        /*switch (view.getId()) {
+        switch (view.getId()) {
             case R.id.linMain:
                 if (view.getTag() != null) {
                     int poisition = Integer.parseInt(view.getTag().toString());
-                    //Toast.makeText(getApplicationContext(), "Poistion: " + poisition, Toast.LENGTH_LONG).show();
 
                     Intent intent=new Intent(this,FullScreenActivity.class);
-                    intent.putExtra(EXTRA_IMAGE,listItems[poisition]);
-                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, view.findViewById(R.id.imageCover), EXTRA_TRANSITION_IMAGE);
+                    intent.putExtra(EXTRA_IMAGE, listItems[poisition]);
+                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
+                            view.findViewById(R.id.imageCover), EXTRA_TRANSITION_IMAGE);
                     ActivityCompat.startActivity(this, intent, options.toBundle());
                 }
                 break;
-        }*/
+        }
     }
 }
