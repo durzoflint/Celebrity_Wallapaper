@@ -17,7 +17,7 @@ public class FullScreenActivity extends AppCompatActivity {
 
         ImageView imgFull=findViewById(R.id.imgFull);
 
-        supportStartPostponedEnterTransition();
+        //supportPostponeEnterTransition();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
             imgFull.setTransitionName(ImageActivity.EXTRA_TRANSITION_IMAGE);
