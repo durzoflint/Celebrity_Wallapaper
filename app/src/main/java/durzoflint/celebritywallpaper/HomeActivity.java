@@ -101,20 +101,41 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(HomeActivity.this, ImageActivity.class);
-        String myList[] = {};
+        String myList[] = {}, name = "";
         switch (v.getId()){
-            case R.id.alexandradaddario: myList = Endpoints.alexandradaddario; break;
-            case R.id.amandacerny: myList = Endpoints.amandacerny; break;
-            case R.id.candiceswanepoel: myList = Endpoints.candiceswanepoel; break;
-            case R.id.emmaroberts: myList = Endpoints.emmaroberts; break;
-            case R.id.emmawatson: myList = Endpoints.emmawatson; break;
-            case R.id.kristenstewart: myList = Endpoints.kristenstewart; break;
-            case R.id.meganfox: myList = Endpoints.meganfox; break;
-            case R.id.scarlettjohansson: myList = Endpoints.scarlettjohansson; break;
-            case R.id.shirleysetia: myList = Endpoints.shirleysetia; break;
-            case R.id.taylorswift: myList = Endpoints.taylorswift; break;
+            case R.id.alexandradaddario: myList = Endpoints.alexandradaddario;
+                name = "Alexandra Daddario";
+                break;
+            case R.id.amandacerny: myList = Endpoints.amandacerny;
+                name = "Amanda Cerny";
+                break;
+            case R.id.candiceswanepoel: myList = Endpoints.candiceswanepoel;
+                name = "Candice Swanepoel";
+                break;
+            case R.id.emmaroberts: myList = Endpoints.emmaroberts;
+                name = "Emma Roberts";
+                break;
+            case R.id.emmawatson: myList = Endpoints.emmawatson;
+                name = "Emma Watson";
+                break;
+            case R.id.kristenstewart: myList = Endpoints.kristenstewart;
+                name = "Kristen Stewart";
+                break;
+            case R.id.meganfox: myList = Endpoints.meganfox;
+                name = "Megan Fox";
+                break;
+            case R.id.scarlettjohansson: myList = Endpoints.scarlettjohansson;
+                name = "Scarlett Johansson";
+                break;
+            case R.id.shirleysetia: myList = Endpoints.shirleysetia;
+                name = "Shirley Setia";
+                break;
+            case R.id.taylorswift: myList = Endpoints.taylorswift;
+                name = "Taylor Swift";
+                break;
         }
         intent.putExtra("list", myList);
+        intent.putExtra("name", name);
         startActivity(intent);
     }
 }

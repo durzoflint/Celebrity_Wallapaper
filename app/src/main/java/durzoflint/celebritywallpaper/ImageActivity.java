@@ -19,6 +19,7 @@ public class ImageActivity extends AppCompatActivity {
     public static final String EXTRA_TRANSITION_IMAGE = "image";
 
     private String[] listItems;
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class ImageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_image);
         Intent intent = getIntent();
         listItems = intent.getStringArrayExtra("list");
+        name = intent.getStringExtra("name");
 
         init();
         setupViewPager();
@@ -88,6 +90,7 @@ public class ImageActivity extends AppCompatActivity {
 
                     Intent intent=new Intent(this,FullScreenActivity.class);
                     intent.putExtra(EXTRA_IMAGE, listItems[poisition]);
+                    intent.putExtra("name", name);
                     ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
                             view.findViewById(R.id.imageCover), EXTRA_TRANSITION_IMAGE);
                     ActivityCompat.startActivity(this, intent, options.toBundle());
