@@ -1,12 +1,11 @@
 package durzoflint.celebritywallpaper;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -34,10 +33,11 @@ public class ImageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image);
 
-        MobileAds.initialize(this, /*"ca-app-pub-9343916750631476~2512812693"*/"ca-app-pub-3940256099942544~3347511713");
+        //MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+        MobileAds.initialize(this, "ca-app-pub-9343916750631476~2512812693");
         mInterstitialAd = new InterstitialAd(this);
-        //mInterstitialAd.setAdUnitId("ca-app-pub-9343916750631476/9219737568");
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.setAdUnitId("ca-app-pub-9343916750631476/9219737568");
+        //mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
@@ -45,32 +45,32 @@ public class ImageActivity extends AppCompatActivity {
                 // Load the next interstitial.
                 mInterstitialAd.loadAd(new AdRequest.Builder().build());
                 addLoaded = false;
-                Log.d("Ad", "Ad closed");
+                //Log.d("Ad", "Ad closed");
             }
 
             @Override
             public void onAdLoaded() {
                 // Code to be executed when an ad finishes loading.
                 addLoaded = true;
-                Log.d("Ad", "Ad opened");
+                //Log.d("Ad", "Ad opened");
             }
 
             @Override
             public void onAdFailedToLoad(int errorCode) {
                 // Code to be executed when an ad request fails.
-                Log.d("Ad", "Error while loading ad. Error code: " + errorCode);
+                //Log.d("Ad", "Error while loading ad. Error code: " + errorCode);
             }
 
             @Override
             public void onAdOpened() {
                 // Code to be executed when the ad is displayed.
-                Log.d("Ad", "Ad opened");
+                //Log.d("Ad", "Ad opened");
             }
 
             @Override
             public void onAdLeftApplication() {
                 // Code to be executed when the user has left the app.
-                Log.d("Ad", "Ad left application");
+                //Log.d("Ad", "Ad left application");
             }
 
         });
