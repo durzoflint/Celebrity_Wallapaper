@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,12 +12,14 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true">
+        android:layout_above="@id/adView"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
 
             <ir.apend.slider.ui.Slider
@@ -28,8 +31,7 @@
                 app:defaultIndicators="circle"
                 app:indicatorSize="8dp"
                 app:intervalSecond="4"
-                app:loopSlides="true">
-            </ir.apend.slider.ui.Slider>
+                app:loopSlides="true"></ir.apend.slider.ui.Slider>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -322,4 +324,16 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+        <!--ads:adUnitId="ca-app-pub-9343916750631476/5308412710">-->
+    </com.google.android.gms.ads.AdView>
 </RelativeLayout>

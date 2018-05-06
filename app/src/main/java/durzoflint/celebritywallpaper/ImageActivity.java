@@ -10,6 +10,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+
 public class ImageActivity extends AppCompatActivity {
 
     private ViewPager viewpagerTop, viewPagerBackground;
@@ -18,6 +23,9 @@ public class ImageActivity extends AppCompatActivity {
     public static final String EXTRA_IMAGE = "image";
     public static final String EXTRA_TRANSITION_IMAGE = "image";
 
+    private InterstitialAd mInterstitialAd;
+    boolean addLoaded = false;
+
     private String[] listItems;
     String name;
 
@@ -25,6 +33,48 @@ public class ImageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image);
+
+        MobileAds.initialize(this, /*"ca-app-pub-9343916750631476~2512812693"*/"ca-app-pub-3940256099942544~3347511713");
+        mInterstitialAd = new InterstitialAd(this);
+        //mInterstitialAd.setAdUnitId("ca-app-pub-9343916750631476/9219737568");
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                addLoaded = false;
+                Log.d("Ad", "Ad closed");
+            }
+
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+                addLoaded = true;
+                Log.d("Ad", "Ad opened");
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                // Code to be executed when an ad request fails.
+                Log.d("Ad", "Error while loading ad. Error code: " + errorCode);
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when the ad is displayed.
+                Log.d("Ad", "Ad opened");
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+                Log.d("Ad", "Ad left application");
+            }
+
+        });
+
         Intent intent = getIntent();
         listItems = intent.getStringArrayExtra("list");
         name = intent.getStringExtra("name");
@@ -83,6 +133,12 @@ public class ImageActivity extends AppCompatActivity {
     }
 
     public void clickEvent(View view) {
+        if (addLoaded) {
+            mInterstitialAd.show();
+        }
+        else {
+            Toast.makeText(this, "Not Loaded", Toast.LENGTH_SHORT).show();
+        }
         switch (view.getId()) {
             case R.id.linMain:
                 if (view.getTag() != null) {

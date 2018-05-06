@@ -10,6 +10,9 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -19,12 +22,19 @@ import ir.apend.slider.model.Slide;
 import ir.apend.slider.ui.Slider;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        MobileAds.initialize(this, /*"ca-app-pub-9343916750631476~2512812693"*/"ca-app-pub-3940256099942544~3347511713");
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         Slider slider = findViewById(R.id.slider);
 
