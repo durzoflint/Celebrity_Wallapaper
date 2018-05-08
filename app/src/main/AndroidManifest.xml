@@ -3,7 +3,7 @@
     package="durzoflint.celebritywallpaper">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -30,6 +30,11 @@
             android:name=".FullScreenActivity"
             android:theme="@style/CarouselTheme" />
         <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
+        <activity android:name=".ContributeActivity" />
+        <activity android:name=".ReportActivity" />
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".ContactActivity" />
+        <activity android:name=".DonateActivity"></activity>
     </application>
 
 </manifest>

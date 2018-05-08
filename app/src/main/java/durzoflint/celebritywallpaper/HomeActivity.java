@@ -164,14 +164,19 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (id){
             case R.id.contribute:
+                startActivity(new Intent(this, ContributeActivity.class));
                 break;
             case R.id.donate:
+                startActivity(new Intent(this, DonateActivity.class));
                 break;
             case R.id.report:
+                startActivity(new Intent(this, ReportActivity.class));
                 break;
             case R.id.about:
+                startActivity(new Intent(this, AboutActivity.class));
                 break;
             case R.id.contact:
+                startActivity(new Intent(this, ContactActivity.class));
                 break;
         }
 
