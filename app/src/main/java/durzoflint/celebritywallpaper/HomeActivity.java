@@ -41,10 +41,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         //create list of slides
         List<Slide> slideList = new ArrayList<>();
-        slideList.add(new Slide(0,"http://cssslider.com/sliders/demo-20/data1/images/picjumbo.com_img_4635.jpg" , 0/*getResources().getDimensionPixelSize(R.dimen.slider_image_corner)*/));
-        slideList.add(new Slide(1,"http://cssslider.com/sliders/demo-12/data1/images/picjumbo.com_hnck1995.jpg" , 0));
-        slideList.add(new Slide(2,"http://cssslider.com/sliders/demo-19/data1/images/picjumbo.com_hnck1588.jpg" , 0));
-        slideList.add(new Slide(3,"http://wowslider.com/sliders/demo-18/data1/images/shanghai.jpg" , 0));
+        slideList.add(new Slide(0,"https://firebasestorage.googleapis.com/v0/b/celebrity-wallpaper.appspot.com/o/Emma%20Watson%2F1.jpg?alt=media&token=54712b0a-1d9c-49df-9c28-7b0808968a84" , 0/*getResources().getDimensionPixelSize(R.dimen.slider_image_corner)*/));
+        slideList.add(new Slide(1,"https://firebasestorage.googleapis.com/v0/b/celebrity-wallpaper.appspot.com/o/Kristen%20Stewart%2F8.jpg?alt=media&token=40351c73-e048-44c0-a7ed-b77c4479c441" , 0));
+        slideList.add(new Slide(2,"https://firebasestorage.googleapis.com/v0/b/celebrity-wallpaper.appspot.com/o/Megan%20Fox%2F5.jpg?alt=media&token=3e971b04-15b3-412a-a3ee-b257c4c77bb2" , 0));
+        slideList.add(new Slide(3,"https://firebasestorage.googleapis.com/v0/b/celebrity-wallpaper.appspot.com/o/Scarlett%20Johansson%2F7.jpg?alt=media&token=3a7cb309-6a12-407e-bd27-958788b80aef" , 0));
 
         //handle slider click listener
         slider.setItemClickListener(new AdapterView.OnItemClickListener() {
