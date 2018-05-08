@@ -6,8 +6,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -137,7 +137,7 @@ public class ImageActivity extends AppCompatActivity {
             mInterstitialAd.show();
         }
         else {
-            Toast.makeText(this, "Not Loaded", Toast.LENGTH_SHORT).show();
+            Log.d("Abhinav","Ad not loaded");
         }
         switch (view.getId()) {
             case R.id.linMain:

@@ -2,19 +2,20 @@ package durzoflint.celebritywallpaper;
 
 import android.Manifest;
 import android.app.DownloadManager;
-import android.app.WallpaperManager;
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.webkit.URLUtil;
@@ -26,7 +27,7 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
-import java.io.IOException;
+import java.io.OutputStream;
 
 public class FullScreenActivity extends AppCompatActivity {
     int WRITE_EXTERNAL_STORAGE = 1;
@@ -62,20 +63,32 @@ public class FullScreenActivity extends AppCompatActivity {
                     }
                 });
 
-        Button  setAsWallpaper = findViewById(R.id.setaswallpaper);
-        setAsWallpaper.setOnClickListener(new View.OnClickListener() {
+        Button  share = findViewById(R.id.share);
+        share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                WallpaperManager wallpaperManager = WallpaperManager.getInstance(FullScreenActivity.this);
-                BitmapDrawable bitmapDrawable = (BitmapDrawable) imgFull.getDrawable();
-                Bitmap bitmap = bitmapDrawable.getBitmap();
+                Bitmap icon = ((BitmapDrawable)imgFull.getDrawable()).getBitmap();
+                Intent share = new Intent(Intent.ACTION_SEND);
+                share.setType("image/jpeg");
+
+                ContentValues values = new ContentValues();
+                values.put(MediaStore.Images.Media.TITLE, "title");
+                values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
+                Uri uri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                        values);
+
+
+                OutputStream outstream;
                 try {
-                    wallpaperManager.setBitmap(bitmap);
-                    Toast.makeText(FullScreenActivity.this, "Wallpaper set successfully", Toast.LENGTH_SHORT).show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    Toast.makeText(FullScreenActivity.this, "Error while setting wallpaper", Toast.LENGTH_SHORT).show();
+                    outstream = getContentResolver().openOutputStream(uri);
+                    icon.compress(Bitmap.CompressFormat.JPEG, 100, outstream);
+                    outstream.close();
+                } catch (Exception e) {
+                    System.err.println(e.toString());
                 }
+
+                share.putExtra(Intent.EXTRA_STREAM, uri);
+                startActivity(Intent.createChooser(share, "Share Image"));
             }
         });
 
