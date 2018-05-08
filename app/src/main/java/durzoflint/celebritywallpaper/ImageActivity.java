@@ -6,7 +6,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 
 import com.google.android.gms.ads.AdListener;
@@ -33,11 +32,9 @@ public class ImageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image);
 
-        //MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
         MobileAds.initialize(this, "ca-app-pub-9343916750631476~2512812693");
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId("ca-app-pub-9343916750631476/9219737568");
-        //mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
@@ -135,10 +132,10 @@ public class ImageActivity extends AppCompatActivity {
     public void clickEvent(View view) {
         if (addLoaded) {
             mInterstitialAd.show();
-        }
+        }/*
         else {
             Log.d("Abhinav","Ad not loaded");
-        }
+        }*/
         switch (view.getId()) {
             case R.id.linMain:
                 if (view.getTag() != null) {

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Celebrity Wallpaper</string>
-    <string name="contribute">Hey there\n\nIf you would like to contribute or add to the collection of these wallpapers/images then please mail us at\ninfo.celebritywallpaper@gmail.com</string>
+    <string name="contribute">Hey there\n\nIf you would like to contribute to the collection of these wallpapers/images then please mail us at\ninfo.celebritywallpaper@gmail.com</string>
     <string name="donate">Hey User\n\nWe develop open source software for the world to make it a better place. Please help us by donating us any amount that you see fit. Your help is greatly appreciated.</string>
     <string name="report">Hello User\n\nIf you see an image that does not belong here or does any damage to anyone then please report it to us at\ninfo.celebritywallpaper@gmail.com</string>
     <string name="about">We develop open source software for the world to make it a better place by writing code.</string>
