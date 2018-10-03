@@ -30,7 +30,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        MobileAds.initialize(this, "ca-app-pub-9343916750631476~2512812693");
+        MobileAds.initialize(this, "cca-app-pub-8337008762712891~8103140245");
 
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
